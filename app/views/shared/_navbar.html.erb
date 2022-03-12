@@ -5,8 +5,11 @@
 
   <ul class="navbar-nav mr-5-lg">
   
+  <li class="nav-item">
+  <%=link_to "All Activities", activities_path, class: "nav-link"%>
+</li>
+
   <%if user_signed_in?%>
- 
   <li class="nav-item">
     <%=link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
   </li>
