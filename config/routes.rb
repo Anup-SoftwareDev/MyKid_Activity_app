@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/restricted", to: "pages#restricted" 
   get "/activities", to: "activities#index", as: "activities"
+  get "/activities/:id", to: "activities#show", as: "activity"
 end

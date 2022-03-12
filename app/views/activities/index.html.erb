@@ -4,7 +4,7 @@
     <%@activities.each do |activity|%>
     <div class="col mb-4">
       <div class="card border-dark h-100">
-        
+      <%=image_tag "cricket.jpg", alt: "boy cricket", class: "thumbnail card-img top"%>
         <div class="card-body">
           <h5><%=activity.title%></h5>
           <p class="card-text text-secondary"><%=activity.description%></p>
