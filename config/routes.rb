@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   get "activities/:id", to: "activities#show", as: "activity"
   put "activities/:id", to: "activities#update"
   patch "activities/:id", to: "activities#update"
-  delete "activities/:id", to: "activities#destroy"
+  delete "activities/:id", to: "activities#destroy", as: "delete_activity"
   get "activities/:id/edit", to: "activities#edit", as: "edit_activity"
 end

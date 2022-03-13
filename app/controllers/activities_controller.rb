@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
   before_action :set_form_vars, only: [:new, :edit]
 
   def index
@@ -37,6 +38,7 @@ class ActivitiesController < ApplicationController
     if @activity.save 
       redirect_to @activity, notice: "Activity successfully updated"
     else
+      
       set_form_vars
       render "edit", notice: "Something went wrong"
     end 
@@ -46,6 +48,7 @@ class ActivitiesController < ApplicationController
   def destroy
 
     @activity.destroy
+    redirect_to activities_path, notice: "Successfully deleted"
 
   end
 
@@ -54,6 +57,13 @@ class ActivitiesController < ApplicationController
   def activity_params
     params.require(:activity).permit(:title, :price, :category_id, :description, :picture)
   end
+
+  def authorize_user 
+    if @activity.user_id != current_user.id
+      flash[:alert] = "You don't have permission to do that"
+      redirect_to activities_path
+    end 
+end 
 
   def set_activity
 

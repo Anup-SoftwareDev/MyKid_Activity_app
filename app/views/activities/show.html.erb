@@ -14,10 +14,18 @@
     <h1 class='mb-sm-2 mb-md-5'><%=@activity.title%></h1>
     <h4 class='text-muted'>Category: <%=format_category(@activity.category.name)%></h4>
     <h5 class='text-muted'>Price: <%=format_price(@activity.price)%></h5>
-    </div>
-
+    
     <div class='container'>
 
+      <%if current_user && current_user.id == @activity.user_id%>
+          <div class='d-flex justify-content-equally'>
+            <%= link_to "Edit", edit_activity_path(@activity.id), class: "btn btn-warning mr-2" %>
+            <%= link_to "Delete", @listing, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          </div>
+      <%end%>
+
+    </div>
+    
     </div>
 
 </section>
