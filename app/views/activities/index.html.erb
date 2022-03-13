@@ -8,12 +8,14 @@
         <div class="card-body">
           <h5><%=activity.title%></h5>
           <p class="card-text text-secondary"><%=activity.description%></p>
-              
+            
+            <div class='d-flex justify-content-between'> 
+                <%=link_to "See More", activity_path(activity.id), class: "btn btn-outline-primary"%>
+                <h5><%=format_price(activity.price)%></h5>
+            </div>
         </div>
       </div>
     </div>
-
-    
     <%end%>
   </div>
 
