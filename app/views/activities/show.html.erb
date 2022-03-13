@@ -2,7 +2,11 @@
   <div class='content col-12 col-md-7 col-lg-8 p-0 pr-md-3'>
     <div class='col-12 p-0 main-preview mb-4'>
 
-        <%=image_tag "cricket.jpg", alt: "boy cricket", class:"thumbnail card-img top"%>
+        <%if @activity.picture.attached?%>
+            <%=image_tag @activity.picture, alt: @activity.title, class:"thumbnail card-img top"%>
+        <%else%>
+            <%=image_tag "cricket.jpg", alt: "boy cricket", class:"thumbnail card-img top"%>
+        <%end%>      
       
     </div>
   </div>
