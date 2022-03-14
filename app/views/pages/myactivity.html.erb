@@ -1,0 +1,32 @@
+<h1 class="hero-title text-center">My Activities </h1>
+<section class="container">
+  <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4">
+    <%@activities.each do |activity|%>
+       
+ <%if current_user && current_user.id == activity.user_id%>
+
+    <div class="col mb-4">
+      <div class="card border-dark h-100">
+            <%if activity.picture.attached?%>
+                <%=image_tag activity.picture, alt: activity.title, class:"thumbnail card-img top"%>
+            <%else%>
+                <%=image_tag "cricket.jpg", alt: "boy cricket", class:"thumbnail card-img top"%>
+            <%end%>   
+        <div class="card-body">
+          <h5><%=activity.title%></h5>
+          <p class="card-text text-secondary"><%=activity.description%></p>
+            
+            <div class='d-flex justify-content-between'> 
+                <%=link_to "See More", activity_path(activity.id), class: "btn btn-outline-primary"%>
+                <h5><%=format_price(activity.price)%></h5>
+            </div>
+        </div>
+      </div>
+    </div>
+    <%end%>
+
+<%end%>
+
+  </div>
+
+</section>
