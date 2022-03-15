@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :set_activity, only: [:show, :edit, :update, :destroy ]
   before_action :authorize_user, only: [:edit, :update, :destroy]
   before_action :set_form_vars, only: [:new, :edit]
 
@@ -10,6 +10,8 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+
+    @registrations = Registration.all
     
   end
 
@@ -29,6 +31,7 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
+
 
   end
 
@@ -52,10 +55,37 @@ class ActivitiesController < ApplicationController
 
   end
 
+  def myactivity
+    @activities = Activity.all
+    #Activity.new = @activities
+    
+end
+
+def booking
+
+  @registration = Registration.new
+  @activities = Activity.all
+  
+end
+
+def book
+  
+  @registration = Registration.new(registration_params)
+
+  @registration.save
+  redirect_to book_path, notice: "Child Successfully Registered"
+
+end
+
+
   private
 
   def activity_params
     params.require(:activity).permit(:title, :price, :category_id, :description, :picture)
+  end
+
+  def registration_params
+    params.require(:registration).permit(:user_id, :activity_id, :name, :surname, :contact_no, :age)
   end
 
   def authorize_user 

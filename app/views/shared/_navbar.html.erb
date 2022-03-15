@@ -5,14 +5,7 @@
 
   <ul class="navbar-nav mr-5-lg">
 
-  <li class="nav-item">
-  <%=link_to "My Activities", myactivities_path, class: "nav-link"%>
-</li>
-
-
-  <li class="nav-item">
-  <%=link_to "MyKid Activities", activities_path, class: "nav-link"%>
-</li>
+ 
 
   
   <li class="nav-item">
@@ -20,18 +13,27 @@
 </li>
 
   <%if user_signed_in?%>
-  <li class="nav-item">
-    <%=link_to "Create Activity", new_activity_path, class: "nav-link"%>
-  </li>
+
+        <li class="nav-item">
+        <%=link_to "My Activities", myactivities_path, class: "nav-link"%>
+      </li>
 
 
-  <li class="nav-item">
-    <%=link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
-  </li>
+        <li class="nav-item">
+        <%=link_to "MyKid Activities", activities_path, class: "nav-link"%>
+      </li>
+
+      <li class="nav-item">
+        <%=link_to "Create Activity", new_activity_path, class: "nav-link"%>
+      </li>
+
+      <li class="nav-item">
+        <%=link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+      </li>
 <%else%>
-  <li class="nav-item">
-    <%= link_to "Log in", new_user_session_path, class: "nav-link"%>
-  </li>
+      <li class="nav-item">
+        <%= link_to "Log in", new_user_session_path, class: "nav-link"%>
+      </li>
 <%end%>
   </ul>
 

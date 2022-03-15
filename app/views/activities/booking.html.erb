@@ -1,0 +1,42 @@
+<%=form_for :registration, local: true do |f|%>
+  
+<h2> My Child Booking </h2>
+
+    <div class='form-group mb-3'> 
+    <%=f.label :"User Id", class: "form-label"%>
+    <%=f.number_field :user_id%>
+    <!-- <%=f.select :activity_id, @activities.map {|c| [c.title, c.id]}, class: "form-select"%> -->
+    </div>
+
+    <div class='form-group mb-3'> 
+    <%=f.label :"Activities", class: "form-label"%>
+    <%=f.number_field :activity_id%>
+    <!-- <%=f.select :activity_id, @activities.map {|c| [c.title, c.id]}, class: "form-select"%> -->
+    </div>
+
+    
+    <div class='form-group mb-3 mt-3'> 
+      <%=f.label "Name", class: "form-label"%>
+      <%=f.text_field :name%>
+    </div>
+    
+    <div class='form-group mb-3'> 
+      <%=f.label "Surname", class: "form-label"%>
+      <%=f.text_field :surname%>
+    </div>
+    
+    <div class='form-group mb-3'> 
+        <%=f.label "Age", class: "form-label"%>
+        <%=f.number_field :age%>
+    </div>
+
+    <div class='form-group mb-3'> 
+        <%=f.label "Contact Number", class: "form-label"%>
+        <%=f.text_field :contact_no%>
+    </div>
+    
+  
+  <div class='actions'> 
+     <%=f.submit "Submit"%>
+    </div>
+  <%end%>

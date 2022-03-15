@@ -1,7 +1,7 @@
 <h1 class="hero-title text-center">My Activities </h1>
 <section class="container">
   <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4">
-    <%@activities.each do |activity|%>
+<%@activities.each do |activity|%>
        
  <%if current_user && current_user.id == activity.user_id%>
 
