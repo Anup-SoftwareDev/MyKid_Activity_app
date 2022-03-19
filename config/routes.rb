@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "pages#home"
-  get "bookings", to: "activities#booking", as: "bookings"
-  post "bookings", to: "activities#book", as: "book"
+  
+  get "bookings/:id", to: "activities#booking", as: "bookings"
+  post "bookings/:id", to: "activities#book", as: "book"
   get "myactivities", to: "activities#myactivity", as: "myactivities"
   get "mykidactivities", to: "activities#mykidactivity", as: "mykidactivities"
   get "restricted", to: "pages#restricted" 

@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_activity, only: [:show, :edit, :update, :destroy ]
+  before_action :set_activity, only: [:show, :edit, :update, :destroy, :booking]
   before_action :authorize_user, only: [:edit, :update, :destroy]
   before_action :set_form_vars, only: [:new, :edit]
 
@@ -12,7 +12,30 @@ class ActivitiesController < ApplicationController
   def show
 
     @registrations = Registration.all
-    
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      customer_email:current_user && current_user.email, 
+      line_items: [
+        {
+          name: @activity.title,
+          description: @activity.description,
+          amount: @activity.price, 
+          currency: 'aud',
+          quantity: 1
+        }
+      ],
+      payment_intent_data: {
+        metadata: {
+          user_id: current_user && current_user.id, 
+          listing_id: @activity.id
+        }
+      },
+      success_url: "#{root_url}bookings/#{@activity.id}", 
+      cancel_url: root_url
+    )
+
+    @session_id = session.id
+      
   end
 
   def new
@@ -73,6 +96,7 @@ def booking
   @registration = Registration.new
   @activities = Activity.all
   
+  
 end
 
 def book
@@ -80,9 +104,10 @@ def book
   @registration = Registration.new(registration_params)
 
   @registration.save
-  redirect_to book_path, notice: "Child Successfully Registered"
+  redirect_to mykidactivities_path, notice: "Child Successfully Registered"
 
 end
+
 
 
   private

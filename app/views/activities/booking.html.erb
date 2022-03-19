@@ -3,15 +3,18 @@
 <h2> My Child Booking </h2>
 
     <div class='form-group mb-3'> 
-    <%=f.label :"User Id", class: "form-label"%>
-    <%=f.number_field :user_id%>
-    <!-- <%=f.select :activity_id, @activities.map {|c| [c.title, c.id]}, class: "form-select"%> -->
+      
+      <%=f.label "Parent User Id", class: "form-label"%>
+      
+      <%=f.number_field :user_id, :value => current_user.id %>
+     
     </div>
 
     <div class='form-group mb-3'> 
-    <%=f.label :"Activities", class: "form-label"%>
-    <%=f.number_field :activity_id%>
-    <!-- <%=f.select :activity_id, @activities.map {|c| [c.title, c.id]}, class: "form-select"%> -->
+    <%=f.label :"Activity Id", class: "form-label"%>
+    <%=f.number_field :activity_id, :value => @activity.id%>
+
+    
     </div>
 
     
@@ -40,3 +43,5 @@
      <%=f.submit "Submit"%>
     </div>
   <%end%>
+
+  
