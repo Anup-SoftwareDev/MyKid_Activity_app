@@ -61,6 +61,13 @@ class ActivitiesController < ApplicationController
     
 end
 
+def mykidactivity
+
+  @activities = Activity.all
+  @registrations = Registration.all
+
+end
+
 def booking
 
   @registration = Registration.new

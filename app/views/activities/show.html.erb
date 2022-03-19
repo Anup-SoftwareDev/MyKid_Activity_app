@@ -25,21 +25,16 @@
           </div> 
          
       <%end%>
-
     <%= link_to "Book", bookings_path, class: "btn btn-primary mt-2 mb-4" %>
-
     <%if current_user && current_user.id == @activity.user_id%>
 
     <h3 class='mb-sm-2 mb-md-3'>Registered Players</h3>
 
     <%@registrations.each do |registration|%>
       <%if @activity.id == registration.activity_id%>
-
         <h5 class='text-muted'><%=registration.name%></h5>
-
       <%end%>
     <%end%>
-
     <%end%>
      
 
@@ -48,3 +43,16 @@
     </div>
 
 </section>
+
+
+
+
+   
+
+
+
+
+
+
+
+   

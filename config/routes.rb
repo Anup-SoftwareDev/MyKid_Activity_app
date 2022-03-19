@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "bookings", to: "activities#booking", as: "bookings"
   post "bookings", to: "activities#book", as: "book"
   get "myactivities", to: "activities#myactivity", as: "myactivities"
+  get "mykidactivities", to: "activities#mykidactivity", as: "mykidactivities"
   get "restricted", to: "pages#restricted" 
   get "activities", to: "activities#index", as: "activities"
   post "activities", to: "activities#create"
