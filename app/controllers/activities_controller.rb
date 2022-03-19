@@ -5,13 +5,13 @@ class ActivitiesController < ApplicationController
   before_action :set_form_vars, only: [:new, :edit]
 
   def index
-    @activities= Activity.all
+    @activities= Activity.all.includes(:category)
    #@categories = Category.all
   end
 
   def show
 
-    @registrations = Registration.all
+    @registrations = Registration.all.includes(:user)  #eager loading
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       customer_email:current_user && current_user.email, 
@@ -79,15 +79,15 @@ class ActivitiesController < ApplicationController
   end
 
   def myactivity
-    @activities = Activity.all
+    @activities = Activity.all.includes(:category) # Eager loading
     #Activity.new = @activities
     
 end
 
 def mykidactivity
 
-  @activities = Activity.all
-  @registrations = Registration.all
+  @activities = Activity.all.includes(:category)   # Eager loading
+  @registrations = Registration.all.includes(:user)    # Eager loading
 
 end
 
