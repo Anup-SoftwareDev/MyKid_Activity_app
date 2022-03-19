@@ -103,8 +103,16 @@ def book
   
   @registration = Registration.new(registration_params)
 
-  @registration.save
-  redirect_to mykidactivities_path, notice: "Child Successfully Registered"
+  #@registration.save
+  #redirect_to mykidactivities_path, notice: "Child Successfully Registered"
+
+  if @registration.save 
+    redirect_to mykidactivities_path, notice: "Activity successfully updated"
+  else
+    
+    redirect_to bookings_path, notice: "Something went wrong"
+    
+  end 
 
 end
 

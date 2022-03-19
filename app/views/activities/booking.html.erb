@@ -2,6 +2,24 @@
   
 <h2> My Child Booking </h2>
 
+<!--Validation display-->
+
+<%if @registration.errors.any?%>
+    <div class="alert alert-error alert-dismissable fade show">
+      <h3><%=pluralize(@registraion.errors.count, "error")%> prohibited this listing from being saved </h3>
+      <ul>
+        <%@registration.errors.full_messages.each do |message|%>
+          <li><%=message%></li>
+        <%end%>
+      </ul>
+    
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <%end%>
+
+
     <div class='form-group mb-3'> 
       
       <%=f.label "Parent User Id", class: "form-label"%>
