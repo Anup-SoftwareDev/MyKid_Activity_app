@@ -53,6 +53,46 @@ https://github.com/Anup-SoftwareDev/MyKid_Activity_app
 
 ## R12: User Stories
 ## R13: Wireframes
+
+### Home Page
+
+* Not Logged-in
+
+![WF1](app/assets/images/WFHomenotl.jpeg)
+
+* Logged in
+
+![WF2](app/assets/images/WFloggedin.jpeg)
+
+### All Activities page
+
+* Not Logged-in
+
+![WF3](app/assets/images/WfAllactivites.jpeg)
+
+* Logged-in
+
+![WF4](app/assets/images/WF4allactivitiesloggedin.png)
+
+### Individual Activity page
+
+* Not Logged-in
+
+![WF5](app/assets/images/individualpagenl.png)
+
+* Logged-in
+
+![WF6](app/assets/images/individualpageloggedin.jpeg)
+
+### MyKid Activty - Parent Mode
+
+![WF7](app/assets/images/mykidactivity.png)
+
+
+### My Activty - Provider Mode
+
+![WF8](app/assets/images/MyActivities.png)
+
 ## R14: Entity Relationship Diagrams
 
 The ERD diagram for My-Kid-Activity app is shwon if Figure R14 below. The enities with **blue** headers are the ones **implemented currently**. The ones in **orange** are the ones **not implemented** yet but planned to be implemented in the future.
