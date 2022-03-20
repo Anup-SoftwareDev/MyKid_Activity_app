@@ -32,7 +32,23 @@ As shown above hence the "My Kid Activity" app is designed to firstly help all p
 
 ## R8: Need to Solve the Problem
 
-These days with parents are bussier thatn ever and extra-caricular activities are deemed more important than ever too. Hence it is very important to be able to fix up the whole system and unfortunately there is nothing in the market that comes close to what My-Kid-Activity App can provide.
+These days with parents are bussier thatn ever and extra-caricular activities are deemed more important than ever too.
+According to a rescent study there is generally 8 benefits to children for doing extracaricular activities(Crimson, 2021):
+
+- improves academic performance
+- allows kids to explore
+- broader interests and get broader perspective on things
+- Gives them social opportunities which leads to limitless options to succeed
+- Is a major boost to confidence,
+- learn priceless life skills like public speaking.
+- the activities provide good refferences for the future
+- Could help with university admission in the future
+
+ Hence it is very important to be able to fix up the whole system and unfortunately there is nothing in the market that comes close to what My-Kid-Activity App can provide.
+
+Refference:
+
+Crimson, 2021. 8 benefits of Extracaricular activities for High school students. https://www.crimsoneducation.org/au/blog/extracurriculars/benefits-of-extracurricular-activities/ (Accessed 20 March 2022)
 
 ## R9: Application URL
 
@@ -234,13 +250,26 @@ Installing webhook with strip can also provide the business with more records an
 
 ## R17: Project Models - Active Record Assosciations
 
+The figure below shows all the models as it appears in schema.rb. All these models have been fully implemented and the Active record assosciations are as described in the figure below:
+
 ![ActiveRecord1](app/assets/images/ActiveRecord1.jpeg)
+
+In the figure above it can be seen Activities model belongs to category and user model while in return User and category have a one-many relationship with Activities.
+
+The figure below however shows mostly models in orange which are models that have not been implemented yet, however their Active record assosciations have been designed as shown below:
+
 ![ActiveRecord2](app/assets/images/ActiveRecord2.png)
 
 
 ## R18: Database Relations
 
+
+The figure below shows all the models as it appears in schema.rb. All these models have been fully implemented and the Database relations are as described in the figure below:
+
 ![DatabaseRelations1](app/assets/images/Databaserelations1.jpeg)
+
+The figure below however shows mostly models in orange which are models that have not been implemented yet, however their Database relations have been designed as shown below:
+
 ![DatabaseRelations2](app/assets/images/Databaserelations2.jpeg)
 
 ## R19: Database Schema Design

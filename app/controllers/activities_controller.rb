@@ -5,16 +5,17 @@ class ActivitiesController < ApplicationController
   before_action :set_form_vars, only: [:new, :edit]
 
   def index
-    @activities= Activity.all.includes(:category)
-   #@categories = Category.all
+    @activities= Activity.all.includes(:category)     #egerloading introduced to speed queries up with category given priority
+                                                      #Index page requires all the activities to be listed and hence
+                                                      #it is necessary to load Everything from the Activity database.
   end
 
   def show
 
-    @registrations = Registration.all.includes(:user)  #eager loading
-    session = Stripe::Checkout::Session.create(
+    @registrations = Registration.all.includes(:user)  #eager loading - an instance variable @registration created
+    session = Stripe::Checkout::Session.create(         #all registrations are loaded into the variable
       payment_method_types: ['card'],
-      customer_email:current_user && current_user.email, 
+      customer_email:current_user && current_user.email,    #Stripe method used for payments
       line_items: [
         {
           name: @activity.title,
@@ -39,12 +40,12 @@ class ActivitiesController < ApplicationController
   end
 
   def new
-    @activity = Activity.new
-    #@categories = Category.all
+    @activity = Activity.new          #new instance variable created to be write a new Activity into the database.
+    
   end
 
   def create
-    @activity = current_user.activities.new(activity_params)
+    @activity = current_user.activities.new(activity_params)           #New activity is wrtten to the database
     if @activity.save 
       redirect_to @activity, notice: "Activity successfully created"
     else
@@ -61,7 +62,7 @@ class ActivitiesController < ApplicationController
   def update
 
     @activity.update(activity_params)
-    if @activity.save 
+    if @activity.save                                                   #a new activity is updated using the instance variable
       redirect_to @activity, notice: "Activity successfully updated"
     else
       
@@ -73,7 +74,7 @@ class ActivitiesController < ApplicationController
   
   def destroy
 
-    @activity.destroy
+    @activity.destroy                                               #deleting an activity witht he instance variable
     redirect_to activities_path, notice: "Successfully deleted"
 
   end
@@ -86,25 +87,23 @@ end
 
 def mykidactivity
 
-  @activities = Activity.all.includes(:category)   # Eager loading
-  @registrations = Registration.all.includes(:user)    # Eager loading
+  @activities = Activity.all.includes(:category)   # Eager loading - need to display acivities of the kids
+  @registrations = Registration.all.includes(:user)    # Eager loading - also have to display information from registrations
 
 end
 
 def booking
 
-  @registration = Registration.new
-  @activities = Activity.all
+  @registration = Registration.new      #new registration to be created
+  @activities = Activity.all            #all activities loaded up to perform booking
   
   
 end
 
 def book
   
-  @registration = Registration.new(registration_params)
+  @registration = Registration.new(registration_params)      #new registration to be created with instance variable
 
-  #@registration.save
-  #redirect_to mykidactivities_path, notice: "Child Successfully Registered"
 
   if @registration.save 
     redirect_to mykidactivities_path, notice: "Activity successfully updated"
@@ -137,12 +136,12 @@ end
 
   def set_activity
 
-    @activity = Activity.find(params[:id])
+    @activity = Activity.find(params[:id])          #instance variable saved to show specific activities
 
   end
 
   def set_form_vars
-    @categories = Category.all
+    @categories = Category.all                    #all categories are loaded to set up activities
    
   end 
 
