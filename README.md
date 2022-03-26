@@ -52,7 +52,7 @@ Crimson, 2021. 8 benefits of Extracaricular activities for High school students.
 
 ## R9: Application URL
 
-https://morning-garden-60590.herokuapp.com/activities
+https://morning-garden-60590.herokuapp.com
 
 ## R10: GitHub Repository Link
 
